@@ -7,9 +7,28 @@ Inline::Brainfuck - Use Brainfuck language in your Perl 6 programs
 # SYNOPSIS
 
 ```perl6
+use lib 'lib';
+use Inline::Brainfuck;
+
+brainfuck '++++++++++ ++++++++++ ++++++++++ +++.'; # prints "!"
 ```
 
 # DESCRIPTION
+
+This module provides a subroutine that takes a string with
+[Brainfuck code](https://en.wikipedia.org/wiki/Brainfuck) and executes it.
+
+# EXPORTED SUBROUTINES
+
+## `brainfuck`
+
+```perl6
+    brainfuck '++++++++++ ++++++++++ ++++++++++ +++.'; # prints "!"
+```
+
+Takes an `Str` with Brainfuck code to execute. Input will be read
+from STDIN. The terminal will be switched to non-buffered mode, so any input
+will be processed immediatelly, per-character. Output will be sent to STDOUT.
 
 ----
 
