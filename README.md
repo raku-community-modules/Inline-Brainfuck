@@ -2,7 +2,7 @@
 
 # NAME
 
-Inline::Brainfuck - Use Brainfuck language in your Perl 6 programs
+Inline::Brainfuck - Use Brainfuck language in your Raku programs
 
 # SYNOPSIS
 
@@ -22,7 +22,7 @@ This module provides a subroutine that takes a string with
 
 ## `brainfuck`
 
-```perl6
+```raku
     brainfuck '++++++++++ ++++++++++ ++++++++++ +++.'; # prints "!"
 ```
 
@@ -35,12 +35,12 @@ will be processed immediatelly, per-character. Output will be sent to STDOUT.
 # REPOSITORY
 
 Fork this module on GitHub:
-https://github.com/zoffixznet/perl6-Inline-Brainfuck
+https://github.com/raku-community-modules/Inline-Brainfuck
 
 # BUGS
 
 To report bugs or request features, please use
-https://github.com/zoffixznet/perl6-Inline-Brainfuck/issues
+https://github.com/raku-community-modules/Inline-Brainfuck/issues
 
 # AUTHOR
 
