@@ -1,13 +1,11 @@
-#!perl6
-
-use lib 'lib';
 use Test;
 use Test::Output;
 use Inline::Brainfuck;
 
+plan 1;
+
 unless %*ENV<INTERACTIVE_TESTING> {
-    diag "INTERACTIVE_TESTING env var not set. Skipping this test";
-    done-testing;
+    pass "INTERACTIVE_TESTING env var not set. Skipping this test";
     exit;
 }
 
@@ -17,5 +15,4 @@ output-is {
     brainfuck 't/bf-programs/input1.bf'.IO.slurp;
 }, "test", 'input -> output program works';
 
-
-done-testing;
+# vim: expandtab shiftwidth=4

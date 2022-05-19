@@ -1,53 +1,47 @@
-[![Build Status](https://travis-ci.org/zoffixznet/perl6-Inline-Brainfuck.svg)](https://travis-ci.org/zoffixznet/perl6-Inline-Brainfuck)
+[![Actions Status](https://github.com/raku-community-modules/Inline-Brainfuck/actions/workflows/test.yml/badge.svg)](https://github.com/raku-community-modules/Inline-Brainfuck/actions)
 
-# NAME
+NAME
+====
 
 Inline::Brainfuck - Use Brainfuck language in your Raku programs
 
-# SYNOPSIS
+SYNOPSIS
+========
 
-```perl6
-use lib 'lib';
+```raku
 use Inline::Brainfuck;
 
 brainfuck '++++++++++ ++++++++++ ++++++++++ +++.'; # prints "!"
 ```
 
-# DESCRIPTION
+DESCRIPTION
+===========
 
-This module provides a subroutine that takes a string with
-[Brainfuck code](https://en.wikipedia.org/wiki/Brainfuck) and executes it.
+This module provides a subroutine that takes a string with [Brainfuck code](https://en.wikipedia.org/wiki/Brainfuck) and executes it.
 
-# EXPORTED SUBROUTINES
+EXPORTED SUBROUTINES
+====================
 
-## `brainfuck`
+brainfuck
+---------
 
 ```raku
-    brainfuck '++++++++++ ++++++++++ ++++++++++ +++.'; # prints "!"
+brainfuck '++++++++++ ++++++++++ ++++++++++ +++.'; # prints "!"
 ```
 
-Takes an `Str` with Brainfuck code to execute. Input will be read
-from STDIN. The terminal will be switched to non-buffered mode, so any input
-will be processed immediatelly, per-character. Output will be sent to STDOUT.
+Takes a `Str` with Brainfuck code to execute. Input will be read from STDIN. The terminal will be switched to non-buffered mode, so any input will be processed immediatelly, per-character. Output will be sent to STDOUT.
 
-----
+AUTHOR
+======
 
-# REPOSITORY
+Zoffix Znet
 
-Fork this module on GitHub:
-https://github.com/raku-community-modules/Inline-Brainfuck
+COPYRIGHT AND LICENSE
+=====================
 
-# BUGS
+Copyright 2016 - 2017 Zoffix Znet
 
-To report bugs or request features, please use
-https://github.com/raku-community-modules/Inline-Brainfuck/issues
+Copyright 2018 - 2022 Raku Community
 
-# AUTHOR
+This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
-Zoffix Znet (http://zoffix.com/)
-
-# LICENSE
-
-You can use and distribute this module under the terms of the
-The Artistic License 2.0. See the `LICENSE` file included in this
-distribution for complete details.

@@ -1,14 +1,31 @@
 {
-    "perl"         : "6.c",
-    "name"         : "Inline::Brainfuck",
-    "license"      : "Artistic-2.0",
-    "version"      : "1.001001",
-    "description"  : "Use Brainfuck language in your Raku programs",
-    "depends"      : [ "Term::termios" ],
-    "test-depends" : [ "Test", "Test::Output" ],
-    "provides"     : {
-        "Inline::Brainfuck" : "lib/Inline/Brainfuck.pm6"
-    },
-    "authors"      : [ "Zoffix Znet" ],
-    "support"      : {"source"   : "git://github.com/raku-community-modules/Inline-Brainfuck.git"}
+  "auth": "zef:raku-community-modules",
+  "authors": [
+    "Zoffix Znet"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+    "Term::termios"
+  ],
+  "description": "Use Brainfuck language in your Raku programs",
+  "license": "Artistic-2.0",
+  "name": "Inline::Brainfuck",
+  "perl": "6.c",
+  "provides": {
+    "Inline::Brainfuck": "lib/Inline/Brainfuck.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "https://github.com/raku-community-modules/Inline-Brainfuck.git",
+  "support": {
+    "source": "git://github.com/raku-community-modules/Inline-Brainfuck.git"
+  },
+  "tags": [
+  ],
+  "test-depends": [
+    "Test",
+    "Test::Output"
+  ],
+  "version": "1.1"
 }

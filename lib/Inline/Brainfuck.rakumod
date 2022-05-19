@@ -1,7 +1,6 @@
-unit module Inline::Brainfuck:ver<1.001001>;
 use Term::termios;
 
-sub brainfuck (Str:D $code) is export {
+my sub brainfuck(Str:D $code) is export {
     check-matching-loop $code;
     my $saved-term;
     try {
@@ -13,10 +12,10 @@ sub brainfuck (Str:D $code) is export {
     };
     LEAVE { try $saved-term.setattr(:DRAIN) }
 
-    my @code    = $code.comb: /<[-<\>+.,[\]]>/;
-    my $ꜛ       = 0;
-    my $cursor  = 0;
-    my $stack   = Buf[uint8].new: 0;
+    my @code   = $code.comb: /<[-<\>+.,[\]]>/;
+    my int $ꜛ;
+    my int $cursor;
+    my $stack := Buf[uint8].new: 0;
     loop {
         given @code[$cursor] {
             when '>' { $stack.append: 0 if $stack.elems == ++$ꜛ;       }
@@ -50,7 +49,7 @@ sub brainfuck (Str:D $code) is export {
     }
 }
 
-sub check-matching-loop ($code) {
+my sub check-matching-loop($code) {
     my $level = 0;
     for $code.comb {
         $level++ if $_ eq '[';
@@ -59,3 +58,54 @@ sub check-matching-loop ($code) {
         LAST { fail 'Unmatched [ ]' if $level > 0 }
     }
 }
+
+=begin pod
+
+=head1 NAME
+
+Inline::Brainfuck - Use Brainfuck language in your Raku programs
+
+=head1 SYNOPSIS
+
+=begin code :lang<raku>
+
+use Inline::Brainfuck;
+
+brainfuck '++++++++++ ++++++++++ ++++++++++ +++.'; # prints "!"
+
+=end code
+
+=head1 DESCRIPTION
+
+This module provides a subroutine that takes a string with
+L<Brainfuck code|https://en.wikipedia.org/wiki/Brainfuck> and executes it.
+
+=head1 EXPORTED SUBROUTINES
+
+=head2 brainfuck
+
+=begin code :lang<raku>
+
+brainfuck '++++++++++ ++++++++++ ++++++++++ +++.'; # prints "!"
+
+=end code
+
+Takes a C<Str>  with Brainfuck code to execute. Input will be read
+from STDIN. The terminal will be switched to non-buffered mode, so any input
+will be processed immediatelly, per-character. Output will be sent to STDOUT.
+
+=head1 AUTHOR
+
+Zoffix Znet
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2016 - 2017 Zoffix Znet
+
+Copyright 2018 - 2022 Raku Community
+
+This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+
+=end pod
+
+# vim: expandtab shiftwidth=4

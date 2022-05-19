@@ -1,9 +1,8 @@
-#!perl6
-
-use lib 'lib';
 use Test;
 use Test::Output;
 use Inline::Brainfuck;
+
+plan 2;
 
 output-is {
     brainfuck '++++++++++ ++++++++++ ++++++++++ ++++++++++'
@@ -14,5 +13,4 @@ output-is {
     brainfuck 't/bf-programs/hello-world.bf'.IO.slurp;
 }, "Hello World!\n", 'Hello world! program works';
 
-
-done-testing;
+# vim: expandtab shiftwidth=4
